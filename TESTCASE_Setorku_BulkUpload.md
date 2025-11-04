@@ -1,6 +1,6 @@
 1️⃣ Console Message Analysis
 
-Setelah login dan membuka menu **Setorku → Bulk Upload**, dilakukan inspeksi melalui browser console (tab *Console* pada Developer Tools).
+Setelah login dan membuka menu **Setorku → Bulk Upload**, dilakukan pemeriksaan melalui browser console (tab *Console* pada Developer Tools).
 
 **Hasil observasi:**
 - Tidak terdapat error JavaScript atau network error pada saat page load.  

@@ -1,4 +1,4 @@
-1️⃣ Console Message Analysis
+1. Console Message Analysis
 
 Setelah login dan membuka menu **Setorku → Bulk Upload**, dilakukan pemeriksaan melalui browser console (tab *Console* pada Developer Tools).
 
@@ -7,11 +7,11 @@ Setelah login dan membuka menu **Setorku → Bulk Upload**, dilakukan pemeriksaa
 - Pesan console hanya menampilkan log internal framework (Next.js dan React rendering info).  
 - Semua request berhasil dijalankan dengan status code **200 (OK)**.  
 
- 2️⃣ API Endpoint, Headers & Parameters
+2. API Endpoint, Headers & Parameters
 
 Selama proses eksplorasi fitur dan klik pada semua tombol halaman, berikut hasil analisis API endpoint dan parameter yang terekam melalui tab *Network*.
 
-▶️ Endpoint: Get Bulk Upload Data
+3. Endpoint: Get Bulk Upload Data
 ```
 GET https://stg-sob.ids.id/api/main/setorku/bulk-upload
 ```
@@ -37,7 +37,7 @@ Query Parameters:
 
 ---
 
-▶️ Endpoint: Add Data
+4. Endpoint: Add Data
 ```
 POST https://stg-sob.ids.id/api/main/setorku/bulk-upload/add
 ```
@@ -61,7 +61,7 @@ Expected Response:
 
 ---
 
-▶️ Endpoint: Approve Data
+5. Endpoint: Approve Data
 ```
 POST https://stg-sob.ids.id/api/main/setorku/bulk-upload/approve
 ```
@@ -73,7 +73,7 @@ Expected Result:
 
 ---
 
-▶️ Endpoint: Reject Data
+6. Endpoint: Reject Data
 ```
 POST https://stg-sob.ids.id/api/main/setorku/bulk-upload/reject
 ```
@@ -84,7 +84,7 @@ Expected Result:
 
 ---
 
-3️⃣ Test Case Documentation
+7. Test Case Documentation
 
 Berikut hasil penyusunan test case berdasarkan fungsi yang tersedia di halaman **Bulk Upload**.
 

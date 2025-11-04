@@ -1,13 +1,4 @@
-# 🧪 Technical Assessment for QA — Setorku Bulk Upload
-
-Repository: [stg-sob.ids.id](https://stg-sob.ids.id/auth/login)  
-Login credential for testing:  
-**Username:** ryobranch  
-**Password:** Test_1234  
-
----
-
-## 1️⃣ Console Message Analysis
+1️⃣ Console Message Analysis
 
 Setelah login dan membuka menu **Setorku → Bulk Upload**, dilakukan inspeksi melalui browser console (tab *Console* pada Developer Tools).
 
@@ -16,18 +7,16 @@ Setelah login dan membuka menu **Setorku → Bulk Upload**, dilakukan inspeksi m
 - Pesan console hanya menampilkan log internal framework (Next.js dan React rendering info).  
 - Semua request berhasil dijalankan dengan status code **200 (OK)**.  
 
----
-
-## 2️⃣ API Endpoint, Headers & Parameters
+ 2️⃣ API Endpoint, Headers & Parameters
 
 Selama proses eksplorasi fitur dan klik pada semua tombol halaman, berikut hasil analisis API endpoint dan parameter yang terekam melalui tab *Network*.
 
-### ▶️ Endpoint: Get Bulk Upload Data
+▶️ Endpoint: Get Bulk Upload Data
 ```
 GET https://stg-sob.ids.id/api/main/setorku/bulk-upload
 ```
 
-**Headers:**
+Headers:
 | Header | Value |
 |--------|--------|
 | Content-Type | application/json; charset=utf-8 |
@@ -35,7 +24,7 @@ GET https://stg-sob.ids.id/api/main/setorku/bulk-upload
 | Cookie | __Secure-next-auth.session-token=... |
 | Referrer Policy | strict-origin-when-cross-origin |
 
-**Query Parameters:**
+Query Parameters:
 | Parameter | Contoh Nilai | Keterangan |
 |------------|--------------|------------|
 | fromDate | 03-10-2025 | Filter tanggal awal |
@@ -48,12 +37,12 @@ GET https://stg-sob.ids.id/api/main/setorku/bulk-upload
 
 ---
 
-### ▶️ Endpoint: Add Data
+▶️ Endpoint: Add Data
 ```
 POST https://stg-sob.ids.id/api/main/setorku/bulk-upload/add
 ```
 
-**Body (JSON):**
+Body (JSON):
 ```json
 {
   "Name": "Test Data",
@@ -66,36 +55,36 @@ POST https://stg-sob.ids.id/api/main/setorku/bulk-upload/add
 }
 ```
 
-**Expected Response:**
+Expected Response:
 - **Status:** 200 OK  
 - **Message:** “Data successfully added.”  
 
 ---
 
-### ▶️ Endpoint: Approve Data
+▶️ Endpoint: Approve Data
 ```
 POST https://stg-sob.ids.id/api/main/setorku/bulk-upload/approve
 ```
 
-**Expected Result:**  
+Expected Result:  
 - Status berubah menjadi *Approved*  
 - User mendapatkan *Kode Bayar*  
 - Response 200 OK  
 
 ---
 
-### ▶️ Endpoint: Reject Data
+▶️ Endpoint: Reject Data
 ```
 POST https://stg-sob.ids.id/api/main/setorku/bulk-upload/reject
 ```
 
-**Expected Result:**  
+Expected Result:
 - Data berubah status menjadi *Rejected*  
 - Response 200 OK  
 
 ---
 
-## 3️⃣ Test Case Documentation
+3️⃣ Test Case Documentation
 
 Berikut hasil penyusunan test case berdasarkan fungsi yang tersedia di halaman **Bulk Upload**.
 
@@ -111,14 +100,5 @@ Berikut hasil penyusunan test case berdasarkan fungsi yang tersedia di halaman *
 | **TC_BU_008** | Approve Data | 1. Pilih 1 data pending  2. Klik **Approve** | Status berubah ke *Approved*, muncul *Kode Bayar*. |
 | **TC_BU_009** | Reject Data | 1. Pilih 1 data pending  2. Klik **Reject** | Status berubah ke *Rejected*, data tidak muncul di list pending. |
 | **TC_BU_010** | Field Validation | 1. Kosongkan mandatory field  2. Klik Submit | Muncul pesan error “Field is required” / “Invalid format”. Tidak ada crash. |
-
----
-
-## ✅ Acceptance Criteria Summary
-- User dapat melihat data setelah login.  
-- Filter berdasarkan tanggal, cabang, partner, dan status berfungsi.  
-- User dapat menambah data baru dengan validasi sesuai aturan field.  
-- Approve menghasilkan *Kode Bayar*.  
-- Reject mengubah status data ke *Rejected*.  
 
 ---
